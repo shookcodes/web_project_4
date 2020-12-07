@@ -7,3 +7,10 @@
   border-bottom: 1px solid var(--mediumGrey);
   margin: 45px auto 40px auto;
 }
+
+@media screen and (max-width: 880px) {
+  .header {
+    max-width: 92vw;
+    padding: 0;
+  }
+}

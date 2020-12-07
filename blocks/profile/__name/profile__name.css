@@ -8,16 +8,23 @@
 
 @media screen and (max-width: 850px) {
   .profile__name {
-    max-width: 160px;
+    white-space: nowrap;
     font-size: 34px;
     line-height: 34px;
   }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 680px) {
   .profile__name {
     font-size: 22px;
     line-height: 27px;
     max-width: 330px;
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .profile__name {
+    font-size: 18px;
+    line-height: 25px;
   }
 }
