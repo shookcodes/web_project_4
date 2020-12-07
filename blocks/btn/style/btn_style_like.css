@@ -8,3 +8,7 @@
   line-height: 30px;
   border: none;
 }
+
+.btn_style_like:hover {
+  opacity: 0.5;
+}

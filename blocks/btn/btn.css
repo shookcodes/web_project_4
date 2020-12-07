@@ -14,6 +14,11 @@
   vertical-align: center;
 }
 
-.btn:hover {
+.btn:disabled {
   opacity: 0.5;
+  cursor: default;
+}
+
+.btn:hover {
+  cursor: pointer;
 }

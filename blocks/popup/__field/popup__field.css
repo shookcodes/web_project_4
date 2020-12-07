@@ -4,3 +4,11 @@
   border-bottom: 1px solid #000000;
   width: 358px;
 }
+
+@media screen and (max-width: 620px) {
+  .popup__field {
+    font-size: 14px;
+    line-height: 17px;
+    width: 238px;
+  }
+}

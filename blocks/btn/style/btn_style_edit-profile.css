@@ -12,3 +12,7 @@
     margin-bottom: 20px;
   }
 }
+
+.btn_style_edit-profile:hover {
+  opacity: 0.6;
+}

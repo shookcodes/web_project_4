@@ -10,3 +10,7 @@
     width: 282px;
   }
 }
+
+.btn_style_add:hover {
+  opacity: 0.6;
+}

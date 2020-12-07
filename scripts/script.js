@@ -31,13 +31,23 @@ let userNameEdit = popup.querySelector("#name");
 let userAboutEdit = popup.querySelector("#about-me");
 
 
-function editProfile() {
-
+function editProfile(e) {
     popup.classList.remove("popup_closed");
     popup.classList.add("popup_opened");
 
     userNameEdit.value = userName.textContent;
     userAboutEdit.value = userAbout.textContent;
+
+    function emptyField() {
+        if ((userNameEdit.value.length < 1) || (userAboutEdit.value.length < 1)) {
+            saveBtn.setAttribute("disabled", "true");
+        } else {
+            saveBtn.removeAttribute("disabled", "true");
+        }
+    }
+
+    userNameEdit.addEventListener("keyup", emptyField);
+    userAboutEdit.addEventListener("keyup", emptyField);
 
     return { userNameEdit, userAboutEdit };
 

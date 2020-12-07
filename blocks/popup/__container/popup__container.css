@@ -1,6 +1,6 @@
 .popup__container {
-  width: 430px;
-  height: 330px;
+  max-width: 430px;
+  max-height: 330px;
   background-color: white;
   border-radius: 15px;
   display: flex;
@@ -8,4 +8,11 @@
   padding: 36px 34px;
   align-items: center;
   text-align: left;
+}
+
+@media screen and (max-width: 620px) {
+  .popup__container {
+    width: 282px;
+    height: 322px;
+  }
 }
