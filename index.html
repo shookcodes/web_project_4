@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+
+    <title>Around the U.S.</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img
+        class="header__logo"
+        src="./images/header__logo.svg"
+        alt="Around the U.S."
+      />
+    </header>
+    <div class="popup popup_closed">
+      <button class="btn btn_style_close">
+        <img src="./images/Close-Icon.svg" alt="Close window" />
+      </button>
+      <form class="popup__container">
+        <h2 class="popup__title">Edit profile</h2>
+        <div class="popup__fields">
+          <label for="name"></label
+          ><input
+            class="popup__field"
+            type="text"
+            id="name"
+            placeholder="Name"
+          />
+          <label for="about-me"></label
+          ><input
+            class="popup__field"
+            type="text"
+            id="about-me"
+            placeholder="About Me"
+          />
+        </div>
+        <input class="btn btn_style_save" type="submit" value="Save" />
+      </form>
+    </div>
+    <section class="profile">
+      <img
+        class="profile__avatar"
+        src="./images/profile__avatar.png"
+        alt="Profile picture"
+      />
+      <div class="profile__info">
+        <div class="profile__name-info">
+          <h1 class="profile__name" id="name">Jacques Cousteau</h1>
+          <button class="btn btn_style_edit-profile">
+            <img src="./images/edit-profile.svg" alt="Edit profile button" />
+          </button>
+        </div>
+        <p class="profile__title" id="about-me">Explorer</p>
+      </div>
+      <button class="btn btn_style_add"><img src="./images/add.svg" /></button>
+    </section>
+    <section class="cards">
+      <div class="card">
+        <img
+          class="card__image"
+          src="./images/yosemite-valley.jpg"
+          alt="Yosemite Valley"
+        />
+        <div class="card__content">
+          <h2 class="card__title">Yosemite Valley</h2>
+          <button class="btn btn_style_like">♡</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          class="card__image"
+          src="./images/lake-louise.png"
+          alt="Lake Louise"
+        />
+        <div class="card__content">
+          <h2 class="card__title">Lake Louise</h2>
+          <button class="btn btn_style_like">♡</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          class="card__image"
+          src="./images/bald-mountains.png"
+          alt="Bald Mountains"
+        />
+        <div class="card__content">
+          <h2 class="card__title">Bald Mountains</h2>
+          <button class="btn btn_style_like">♡</button>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card__image" src="./images/latemar.png" alt="Latemar" />
+        <div class="card__content">
+          <h2 class="card__title">Latemar</h2>
+          <button class="btn btn_style_like">♡</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          class="card__image"
+          src="./images/vanoise.png"
+          alt="Vanoise National Park"
+        />
+        <div class="card__content">
+          <h2 class="card__title">Vanoise National Park</h2>
+          <button class="btn btn_style_like">♡</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          class="card__image"
+          src="./images/lago-di-braies.png"
+          alt="Lago di Braies"
+        />
+        <div class="card__content">
+          <h2 class="card__title">Lago di Braies</h2>
+          <button class="btn btn_style_like">♡</button>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">© 2020 Around The U.S.</footer>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>

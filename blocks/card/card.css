@@ -1,0 +1,14 @@
+@import url("./__title/card__title.css");
+@import url("./__image/card__image.css");
+@import url("./__content/card__content.css");
+
+.card {
+  max-width: 282px;
+  max-height: 362px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  overflow: hidden;
+}

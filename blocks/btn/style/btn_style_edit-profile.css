@@ -1,0 +1,14 @@
+.btn_style_edit-profile {
+  max-width: 24px;
+  max-height: 24px;
+  padding: 5px;
+  background-color: #000000;
+  border: 1px solid white;
+}
+
+@media screen and (max-width: 756px) {
+  .btn_style_edit-profile {
+    align-self: center;
+    margin-bottom: 20px;
+  }
+}

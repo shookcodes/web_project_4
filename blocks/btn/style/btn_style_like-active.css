@@ -1,0 +1,13 @@
+.btn_style_like-active {
+  background-color: #ffffff;
+  color: black;
+  padding: 0;
+  height: auto;
+  max-height: 25px;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.btn_style_like-active:hover {
+  opacity: 0.5;
+}

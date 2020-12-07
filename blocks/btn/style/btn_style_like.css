@@ -1,0 +1,10 @@
+.btn_style_like {
+  background-color: #ffffff;
+  color: black;
+  padding: 0;
+  height: auto;
+  max-height: 25px;
+  font-size: 24px;
+  line-height: 30px;
+  border: none;
+}
