@@ -27,7 +27,7 @@ for (let i = 0; i < card.length; i++) {
 //These 2 functions toggle opening and closing the Edit Profile modal.
 let userName = profile.querySelector(".profile__name");
 let userAbout = profile.querySelector(".profile__title");
-let userNameEdit = popup.querySelector("#name");
+let userNameEdit = popup.querySelector("#user-name");
 let userAboutEdit = popup.querySelector("#about-me");
 
 
