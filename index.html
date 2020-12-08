@@ -16,7 +16,7 @@
       />
     </header>
     <div class="popup popup_closed">
-      <button class="btn btn_style_close">
+      <button class="btn btn_style_close" type="reset">
         <img src="./images/Close-Icon.svg" alt="Close window" />
       </button>
       <form class="popup__container">
@@ -26,7 +26,8 @@
           ><input
             class="popup__field"
             type="text"
-            id="name"
+            id="user-name"
+            name="user-name"
             placeholder="Name"
           />
           <label for="about-me"></label
@@ -34,6 +35,7 @@
             class="popup__field"
             type="text"
             id="about-me"
+            name="about-me"
             placeholder="About Me"
           />
         </div>
@@ -49,13 +51,13 @@
       <div class="profile__info">
         <div class="profile__name-info">
           <h1 class="profile__name" id="name">Jacques Cousteau</h1>
-          <button class="btn btn_style_edit-profile">
+          <button class="btn btn_style_edit-profile" type="button">
             <img src="./images/edit-profile.svg" alt="Edit profile button" />
           </button>
         </div>
         <p class="profile__title" id="about-me">Explorer</p>
       </div>
-      <button class="btn btn_style_add">
+      <button class="btn btn_style_add" type="button">
         <img src="./images/add.svg" alt="Add button" />
       </button>
     </section>
@@ -68,7 +70,7 @@
         />
         <div class="card__content">
           <h2 class="card__title">Yosemite Valley</h2>
-          <button class="btn btn_style_like">♡</button>
+          <button class="btn btn_style_like" type="button">♡</button>
         </div>
       </div>
       <div class="card">
@@ -79,7 +81,7 @@
         />
         <div class="card__content">
           <h2 class="card__title">Lake Louise</h2>
-          <button class="btn btn_style_like">♡</button>
+          <button class="btn btn_style_like" type="button">♡</button>
         </div>
       </div>
       <div class="card">
@@ -90,14 +92,14 @@
         />
         <div class="card__content">
           <h2 class="card__title">Bald Mountains</h2>
-          <button class="btn btn_style_like">♡</button>
+          <button class="btn btn_style_like" type="button">♡</button>
         </div>
       </div>
       <div class="card">
         <img class="card__image" src="./images/latemar.png" alt="Latemar" />
         <div class="card__content">
           <h2 class="card__title">Latemar</h2>
-          <button class="btn btn_style_like">♡</button>
+          <button class="btn btn_style_like" type="button">♡</button>
         </div>
       </div>
       <div class="card">
@@ -108,7 +110,7 @@
         />
         <div class="card__content">
           <h2 class="card__title">Vanoise National Park</h2>
-          <button class="btn btn_style_like">♡</button>
+          <button class="btn btn_style_like" type="button">♡</button>
         </div>
       </div>
       <div class="card">
@@ -119,7 +121,7 @@
         />
         <div class="card__content">
           <h2 class="card__title">Lago di Braies</h2>
-          <button class="btn btn_style_like">♡</button>
+          <button class="btn btn_style_like" type="button">♡</button>
         </div>
       </div>
     </section>
