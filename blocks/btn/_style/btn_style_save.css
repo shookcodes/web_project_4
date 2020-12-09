@@ -25,5 +25,8 @@
     width: 238px;
     font-size: 14px;
     line-height: 17px;
+    display: flex;
+    align-content: center;
+    margin: 0 auto;
   }
 }

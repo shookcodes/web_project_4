@@ -13,22 +13,13 @@ let form = popup.querySelector(".popup__container");
 //These 2 functions toggle opening and closing the Edit Profile modal.
 let userName = profile.querySelector(".profile__name");
 let userAbout = profile.querySelector(".profile__title");
-<<<<<<< HEAD
-let userNameEdit = popup.querySelector("#user-name");
-let userAboutEdit = popup.querySelector("#about-me");
-=======
 let userNameEdit = popup.querySelector(".popup__field_type_user-name");
 let userAboutEdit = popup.querySelector(".popup__field_type_about-me");
->>>>>>> develop
 
 
 function editProfile() {
     userNameEdit.value = userName.textContent;
     userAboutEdit.value = userAbout.textContent;
-
-
-
-
 
 }
 
@@ -60,7 +51,7 @@ editBtn.addEventListener("click", openProfile);
 form.addEventListener("submit", saveProfile);
 closeBtn.addEventListener("click", closeProfile);
 
-//These functions pull the user's name from index.html
+
 
 
 
