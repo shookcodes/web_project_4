@@ -2,8 +2,12 @@
   max-width: 24px;
   max-height: 24px;
   padding: 5px;
-  background-color: #000000;
+  background-color: transparent;
   border: 1px solid white;
+}
+
+.btn_style_edit-profile:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 756px) {
@@ -13,6 +17,9 @@
   }
 }
 
-.btn_style_edit-profile:hover {
-  opacity: 0.6;
+@media screen and (max-width: 620px) {
+  .btn_style_edit-profile {
+    width: 18px;
+    height: 18px;
+  }
 }
