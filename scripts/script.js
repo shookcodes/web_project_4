@@ -9,55 +9,33 @@ let saveBtn = popup.querySelector(".btn_style_save");
 let form = popup.querySelector(".popup__container");
 
 
-//Toggles the hearts between white and black when user clicks on them. 
-for (let i = 0; i < card.length; i++) {
-    likeBtn[i].addEventListener("click", toggleLikeBtn);
-    function toggleLikeBtn() {
-        if (likeBtn[i].textContent === "♡") {
-            likeBtn[i].textContent = " ♥";
-
-        } else {
-            likeBtn[i].textContent = "♡"
-        }
-    }
-}
-
-
 
 //These 2 functions toggle opening and closing the Edit Profile modal.
 let userName = profile.querySelector(".profile__name");
 let userAbout = profile.querySelector(".profile__title");
-let userNameEdit = popup.querySelector("#user-name");
-let userAboutEdit = popup.querySelector("#about-me");
+let userNameEdit = popup.querySelector(".popup__field_type_user-name");
+let userAboutEdit = popup.querySelector(".popup__field_type_about-me");
 
 
-function editProfile(e) {
-    popup.classList.remove("popup_closed");
-    popup.classList.add("popup_opened");
-
+function editProfile() {
     userNameEdit.value = userName.textContent;
     userAboutEdit.value = userAbout.textContent;
 
-    function emptyField() {
-        if ((userNameEdit.value.length < 1) || (userAboutEdit.value.length < 1)) {
-            saveBtn.setAttribute("disabled", "true");
-        } else {
-            saveBtn.removeAttribute("disabled", "true");
-        }
-    }
 
-    userNameEdit.addEventListener("keyup", emptyField);
-    userAboutEdit.addEventListener("keyup", emptyField);
 
-    return { userNameEdit, userAboutEdit };
+
 
 }
 
 
+function openProfile() {
+    popup.classList.remove("popup_closed");
 
+    userNameEdit.value = userName.textContent;
+    userAboutEdit.value = userAbout.textContent;
+}
 
 function closeProfile() {
-    popup.classList.remove("popup_opened");
     popup.classList.add("popup_closed");
 }
 
@@ -65,19 +43,15 @@ function saveProfile(e) {
 
     e.preventDefault();
 
-    userName.textContent = "";
-    userAbout.textContent = "";
 
     userName.textContent = userNameEdit.value;
     userAbout.textContent = userAboutEdit.value;
 
-    console.log(userNameEdit.value, userAboutEdit.value);
-    popup.classList.remove("popup_opened");
     popup.classList.add("popup_closed");
 
 }
 
-editBtn.addEventListener("click", editProfile);
+editBtn.addEventListener("click", openProfile);
 form.addEventListener("submit", saveProfile);
 closeBtn.addEventListener("click", closeProfile);
 

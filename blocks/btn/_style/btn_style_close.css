@@ -1,0 +1,9 @@
+.btn_style_close {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 40px;
+}
+
+.btn_style_close:hover {
+  opacity: 0.6;
+}

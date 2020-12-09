@@ -1,9 +1,9 @@
-@import url("./style/btn_style_edit-profile.css");
-@import url("./style/btn_style_add.css");
-@import url("./style/btn_style_like-active.css");
-@import url("./style/btn_style_like.css");
-@import url("./style/btn_style_save.css");
-@import url("./style/btn_style_close.css");
+@import url("./_style/btn_style_edit-profile.css");
+@import url("./_style/btn_style_add.css");
+@import url("./_style/btn_style_like-active.css");
+@import url("./_style/btn_style_like.css");
+@import url("./_style/btn_style_save.css");
+@import url("./_style/btn_style_close.css");
 
 .btn {
   margin: 0;
