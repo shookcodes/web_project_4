@@ -7,3 +7,9 @@
 .btn_style_close:hover {
   opacity: 0.6;
 }
+
+@media screen and (max-width: 620px) {
+  .btn_style_close {
+    transform: scale(0.6);
+  }
+}

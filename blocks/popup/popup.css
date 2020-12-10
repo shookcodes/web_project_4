@@ -2,7 +2,6 @@
 @import url("./__fields/popup__fields.css");
 @import url("./__field/popup__field.css");
 @import url("./__title/popup__title.css");
-@import url("./_opened/popup_opened.css");
 @import url("./_closed/popup_closed.css");
 @import url("./__close-btn/popup__close-btn.css");
 

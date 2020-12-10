@@ -1,11 +1,9 @@
 let cardsContainer = document.querySelector(".cards");
 let card = cardsContainer.querySelectorAll(".card");
-let likeBtn = cardsContainer.getElementsByClassName("btn_style_like");
 let profile = document.querySelector(".profile");
 let editBtn = profile.querySelector(".btn_style_edit-profile");
 let popup = document.querySelector(".popup");
 let closeBtn = popup.querySelector(".btn_style_close");
-let saveBtn = popup.querySelector(".btn_style_save");
 let form = popup.querySelector(".popup__container");
 
 
@@ -17,18 +15,11 @@ let userNameEdit = popup.querySelector(".popup__field_type_user-name");
 let userAboutEdit = popup.querySelector(".popup__field_type_about-me");
 
 
-function editProfile() {
-    userNameEdit.value = userName.textContent;
-    userAboutEdit.value = userAbout.textContent;
-
-}
-
-
 function openProfile() {
-    popup.classList.remove("popup_closed");
-
     userNameEdit.value = userName.textContent;
     userAboutEdit.value = userAbout.textContent;
+
+    popup.classList.remove("popup_closed");
 }
 
 function closeProfile() {
@@ -43,7 +34,7 @@ function saveProfile(e) {
     userName.textContent = userNameEdit.value;
     userAbout.textContent = userAboutEdit.value;
 
-    popup.classList.add("popup_closed");
+    closeProfile();
 
 }
 

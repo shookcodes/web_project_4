@@ -4,17 +4,12 @@
   padding: 5px;
   background-color: transparent;
   border: 1px solid white;
+  cursor: pointer;
+  align-self: flex-end;
 }
 
 .btn_style_edit-profile:hover {
-  opacity: 0.6;
-}
-
-@media screen and (max-width: 756px) {
-  .btn_style_edit-profile {
-    align-self: center;
-    margin-bottom: 20px;
-  }
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 620px) {
