@@ -140,7 +140,8 @@ function renderCards() {
     let card = cardsContainer.querySelectorAll(".card");
     let likeBtn = cardsContainer.querySelectorAll(".btn");
     let deleteBtn = cardsContainer.querySelectorAll(".btn_style_delete");
-    let cardImage = cardsContainer.querySelectorAll(".card__image")
+    let cardImage = cardsContainer.querySelectorAll(".card__image");
+    let cardTitle = cardsContainer.querySelectorAll(".card__title");
 
     for (let i = 0; i < card.length; i++) {
         //Toggles the hearts between white and black when user clicks on them. 
@@ -164,7 +165,7 @@ function renderCards() {
         function openImage() {
             imagePopup.querySelector(".image-popup__image").src = cardImage[i].src;
             imagePopup.querySelector(".image-popup__image").alt = cardImage[i].alt;
-            imagePopup.querySelector(".image-popup__caption").textContent = cardImage[i].alt;
+            imagePopup.querySelector(".image-popup__caption").textContent = cardTitle[i].textContent;
 
             if (imagePopup.classList.contains("popup_closed")) {
                 imagePopup.classList.remove("popup_closed");
