@@ -167,8 +167,8 @@ function renderCards() {
             imagePopup.querySelector(".image-popup__image").alt = cardImage[i].alt;
             imagePopup.querySelector(".image-popup__caption").textContent = cardTitle[i].textContent;
 
-            if (imagePopup.classList.contains("popup_closed")) {
-                imagePopup.classList.remove("popup_closed");
+            if (imagePopup.classList.contains("image-popup_closed")) {
+                imagePopup.classList.remove("image-popup_closed");
             }
             imagePopup.classList.remove("popup_fade-out");
             imagePopup.classList.add("popup_fade-in");
