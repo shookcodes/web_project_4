@@ -29,9 +29,7 @@
               class="btn btn_style_edit-profile"
               type="button"
               aria-label="Edit profile"
-            >
-              <img src="./images/edit-profile.svg" alt="Edit profile button" />
-            </button>
+            ></button>
           </div>
           <p class="profile__title">Explorer</p>
         </div>
@@ -39,123 +37,20 @@
           class="btn btn_style_add"
           type="button"
           aria-label="Add location"
-        >
-          <img src="./images/add.svg" alt="Add button" />
-        </button>
+        ></button>
       </section>
-      <section class="cards">
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/yosemite-valley.jpg"
-            alt="Yosemite Valley"
-          />
-          <div class="card__content">
-            <h2 class="card__title">Yosemite Valley</h2>
-            <button
-              class="btn btn_style_like"
-              type="button"
-              aria-label="Like location"
-            >
-              <img src="./images/heart_white.svg" alt="White heart" />
-            </button>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/lake-louise.png"
-            alt="Lake Louise"
-          />
-          <div class="card__content">
-            <h2 class="card__title">Lake Louise</h2>
-            <button
-              class="btn btn_style_like"
-              type="button"
-              aria-label="Like location"
-            >
-              <img src="./images/heart_white.svg" alt="White heart" />
-            </button>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/bald-mountains.png"
-            alt="Bald Mountains"
-          />
-          <div class="card__content">
-            <h2 class="card__title">Bald Mountains</h2>
-            <button
-              class="btn btn_style_like"
-              type="button"
-              aria-label="Like location"
-            >
-              <img src="./images/heart_white.svg" alt="White heart" />
-            </button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/latemar.png" alt="Latemar" />
-          <div class="card__content">
-            <h2 class="card__title">Latemar</h2>
-            <button
-              class="btn btn_style_like"
-              type="button"
-              aria-label="Like location"
-            >
-              <img src="./images/heart_white.svg" alt="White heart" />
-            </button>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/vanoise.png"
-            alt="Vanoise National Park"
-          />
-          <div class="card__content">
-            <h2 class="card__title">Vanoise National Park</h2>
-            <button
-              class="btn btn_style_like"
-              type="button"
-              aria-label="Like location"
-            >
-              <img src="./images/heart_white.svg" alt="White heart" />
-            </button>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card__image"
-            src="./images/lago-di-braies.png"
-            alt="Lago di Braies"
-          />
-          <div class="card__content">
-            <h2 class="card__title">Lago di Braies</h2>
-            <button
-              class="btn btn_style_like"
-              type="button"
-              aria-label="Like location"
-            >
-              <img src="./images/heart_white.svg" alt="White heart" />
-            </button>
-          </div>
-        </div>
-      </section>
+      <section class="cards"></section>
     </main>
     <footer class="footer">
       <p class="footer__paragraph">© 2020 Around The U.S.</p>
     </footer>
-    <div class="popup popup_closed">
+    <div class="popup popup_style_profile popup_closed">
       <form class="popup__container">
         <button
-          class="btn btn_style_close popup__close-btn"
+          class="btn btn_style_close popup__close-btn_style_profile"
           type="reset"
           aria-label="Close profile modal"
-        >
-          <img src="./images/Close-Icon.svg" alt="Close icon" />
-        </button>
+        ></button>
         <h2 class="popup__title">Edit profile</h2>
         <div class="popup__fields">
           <input
@@ -184,6 +79,65 @@
         </button>
       </form>
     </div>
+    <div class="popup popup_style_place popup_closed">
+      <form class="popup__container">
+        <button
+          class="btn btn_style_close btn_style_close-popup"
+          type="reset"
+          aria-label="Close place modal"
+        ></button>
+        <h2 class="popup__title">New Place</h2>
+        <div class="popup__fields popup_style_place">
+          <input
+            class="popup__field popup__field_type_place-name"
+            type="text"
+            id="place-name"
+            name="place-name"
+            placeholder="Title"
+            required
+          />
+          <input
+            class="popup__field popup__field_type_place-link"
+            type="url"
+            id="place-link"
+            name="place-link"
+            placeholder="Image link"
+            required
+          />
+        </div>
+        <button
+          class="btn btn_style_save"
+          type="submit"
+          aria-label="Create new place"
+        >
+          Create
+        </button>
+      </form>
+    </div>
+    <div class="image-popup popup_closed">
+      <div class="image-popup__container">
+        <button class="btn btn_style_close btn_style_close-image"></button>
+        <figure class="image-popup__figure">
+          <img class="image-popup__image" src="data:," alt="" />
+          <figcaption class="image-popup__caption"></figcaption>
+        </figure>
+      </div>
+    </div>
+    <template id="card-template">
+      <div class="card">
+        <button class="btn btn_style_delete" aria-label="Delete place"></button>
+        <img class="card__image" src="" alt="" />
+        <div class="card__content">
+          <h2 class="card__title"></h2>
+          <button
+            class="btn btn_style_like"
+            type="button"
+            aria-label="Like location"
+          ></button>
+        </div>
+      </div>
+    </template>
+
     <script src="./scripts/script.js"></script>
   </body>
 </html>

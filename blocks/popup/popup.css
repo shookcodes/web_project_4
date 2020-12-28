@@ -3,7 +3,8 @@
 @import url("./__field/popup__field.css");
 @import url("./__title/popup__title.css");
 @import url("./_closed/popup_closed.css");
-@import url("./__close-btn/popup__close-btn.css");
+@import url("./_fade-in/popup_fade-in.css");
+@import url("./_fade-out/popup_fade-out.css");
 
 .popup {
   width: 100vw;

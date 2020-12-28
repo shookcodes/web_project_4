@@ -4,13 +4,14 @@
 
 .card {
   max-width: 282px;
-  max-height: auto;
+  max-height: 362px;
   width: 100%;
   height: auto;
   background-color: white;
   color: black;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
 
 @media screen and (max-width: 880px) {

@@ -2,15 +2,12 @@
 
 ### Overview
 
-* Figma
-* Images
+This project contains editable cards where users can add images and titles of their favorite places.
 
-**Figma**
+## Technology
 
-* [Link to the project in Figma](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+Technology used in this project includes Figma, HTML/CSS, and Javascript.
 
-**Images**
+## Updates
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-
-Have fun with JavaScript!
+Updates will be made after a code review.

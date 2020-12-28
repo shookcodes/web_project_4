@@ -1,4 +1,7 @@
 .btn_style_add {
+  background: url("../../../images/add.svg") no-repeat center;
+  min-width: 22px;
+  min-height: 22px;
   width: 150px;
   height: 50px;
   background-color: #000000;

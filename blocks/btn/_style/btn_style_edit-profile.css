@@ -1,7 +1,8 @@
 .btn_style_edit-profile {
-  max-width: 24px;
-  max-height: 24px;
-  padding: 5px;
+  background: url("../../../images/edit-profile.svg") no-repeat center;
+  min-width: 10px;
+  min-height: 10px;
+  padding: 10px;
   background-color: transparent;
   border: 1px solid white;
   cursor: pointer;

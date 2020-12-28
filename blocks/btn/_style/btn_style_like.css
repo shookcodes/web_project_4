@@ -1,6 +1,8 @@
 .btn_style_like {
   background-color: transparent;
-  color: black;
+  background: url("../../../images/heart_white.svg") no-repeat;
+  min-width: 20.76px;
+  min-height: 18.13px;
   padding: 0;
   height: auto;
   max-height: 25px;

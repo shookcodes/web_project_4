@@ -1,4 +1,4 @@
-.btn_style_close {
+.btn_style_close-popup {
   background-color: rgba(0, 0, 0, 0);
   background: url("../../../images/Close-Icon.svg") no-repeat center;
   min-width: 40px;
@@ -10,13 +10,14 @@
   right: -40px;
 }
 
-.btn_style_close:hover {
+.btn_style_close-popup:hover {
   opacity: 0.6;
 }
 
 @media screen and (max-width: 620px) {
-  .btn_style_close {
-    transform: scale(0.6);
-    right: -10px;
+  .btn_style_close-popup {
+    transform: scale(0.75);
+    top: -35px;
+    right: -30px;
   }
 }

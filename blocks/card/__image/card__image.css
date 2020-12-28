@@ -1,5 +1,11 @@
 .card__image {
   width: 100%;
-  height: auto;
+  height: 282px;
+  margin: 0;
   background-color: #000000;
+  background-size: cover;
+}
+
+.card__image:hover {
+  cursor: pointer;
 }

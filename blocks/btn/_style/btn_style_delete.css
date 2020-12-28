@@ -1,0 +1,20 @@
+.btn_style_delete {
+  background-color: transparent;
+  background: url("../../../images/Trash.svg") no-repeat;
+  min-width: 18px;
+  min-height: 19.3px;
+  color: white;
+  padding: 0;
+  height: auto;
+  max-height: 25px;
+  font-size: 24px;
+  line-height: 30px;
+  border: none;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
+
+.btn_style_delete:hover {
+  opacity: 0.6;
+}
