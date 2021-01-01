@@ -1,4 +1,4 @@
-let cardsContainer = document.querySelector(".cards");
+const cardsContainer = document.querySelector(".cards");
 const profile = document.querySelector(".profile");
 const editBtn = profile.querySelector(".btn_style_edit-profile");
 //const popup = document.querySelector(".popup");
@@ -81,9 +81,8 @@ const placeText = popupPlace.querySelector(".popup__field_type_place-name");
 const imageLink = popupPlace.querySelector(".popup__field_type_place-link");
 const placeForm = popupPlace.querySelector(".popup__container");
 
-function addPlace(e) {
-    openPopup(popupPlace);
-    e.preventDefault();
+function openPlacePopup() {
+    openPopup(popupPlace)
 }
 
 function closePlace() {
@@ -102,7 +101,7 @@ function savePlace(e) {
 }
 
 placeCloseBtn.addEventListener("click", closePlace);
-addBtn.addEventListener("click", addPlace);
+addBtn.addEventListener("click", openPlacePopup);
 placeForm.addEventListener("submit", savePlace);
 
 const closeImageBtn = imagePopup.querySelector(".btn_style_close-image");
