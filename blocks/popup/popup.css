@@ -1,10 +1,11 @@
 @import url("./__container/popup__container.css");
+@import url("./__figure/popup__figure.css");
+@import url("./__image/popup__image.css");
 @import url("./__fields/popup__fields.css");
 @import url("./__field/popup__field.css");
 @import url("./__title/popup__title.css");
-@import url("./_closed/popup_closed.css");
-@import url("./_fade-in/popup_fade-in.css");
-@import url("./_fade-out/popup_fade-out.css");
+@import url("./__image-container/popup__image-container.css");
+@import url("./__caption/popup__caption.css");
 
 .popup {
   width: 100vw;
@@ -16,4 +17,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-out;
 }
