@@ -1,0 +1,6 @@
+.popup__inputs {
+  margin: 25px auto 44px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

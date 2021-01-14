@@ -1,6 +1,9 @@
 .popup__fields {
-  margin: 54px auto 44px auto;
+  border: none;
+  height: 330px;
+  width: 100%;
+  max-width: 358px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }

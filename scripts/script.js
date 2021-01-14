@@ -4,15 +4,15 @@ const editBtn = profile.querySelector(".btn_style_edit-profile");
 //const popup = document.querySelector(".popup");
 const popupProfile = document.querySelector(".popup_style_profile");
 const profileCloseBtn = popupProfile.querySelector(".btn_style_close");
-const profileForm = popupProfile.querySelector(".popup__container");
+const profileForm = popupProfile.querySelector(".popup__form");
 const addBtn = document.querySelector(".btn_style_add");
 const imagePopup = document.querySelector(".popup_style_image");
 
 //Edit profile functions
 const userName = profile.querySelector(".profile__name");
 const userAbout = profile.querySelector(".profile__title");
-const userNameEdit = popupProfile.querySelector(".popup__field_type_user-name");
-const userAboutEdit = popupProfile.querySelector(".popup__field_type_about-me");
+const userNameEdit = popupProfile.querySelector(".popup__input_type_user-name");
+const userAboutEdit = popupProfile.querySelector(".popup__input_type_about-me");
 
 function openPopup(popup) {
     popup.classList.add("popup_opened");
@@ -77,9 +77,9 @@ const initialCards = [
 //place functions
 const popupPlace = document.querySelector(".popup_style_place");
 const placeCloseBtn = popupPlace.querySelector(".btn_style_close");
-const placeText = popupPlace.querySelector(".popup__field_type_place-name");
-const imageLink = popupPlace.querySelector(".popup__field_type_place-link");
-const placeForm = popupPlace.querySelector(".popup__container");
+const placeText = popupPlace.querySelector(".popup__input_type_place-name");
+const imageLink = popupPlace.querySelector(".popup__input_type_place-link");
+const placeForm = popupPlace.querySelector(".popup__form");
 
 function openPlacePopup() {
     openPopup(popupPlace)

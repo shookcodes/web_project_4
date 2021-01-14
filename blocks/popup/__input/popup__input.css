@@ -1,5 +1,5 @@
-.popup__field {
-  margin: 0 auto 29px auto;
+.popup__input {
+  margin: 29px auto 0 auto;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   width: 358px;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 620px) {
-  .popup__field {
+  .popup__input {
     max-width: 238px;
     width: 80vw;
   }
