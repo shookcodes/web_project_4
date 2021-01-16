@@ -1,18 +1,20 @@
 const cardsContainer = document.querySelector(".cards");
 const profile = document.querySelector(".profile");
 const editBtn = profile.querySelector(".btn_style_edit-profile");
-//const popup = document.querySelector(".popup");
+const popup = Array.from(document.querySelectorAll(".popup"));
 const popupProfile = document.querySelector(".popup_style_profile");
 const profileCloseBtn = popupProfile.querySelector(".btn_style_close");
 const profileForm = popupProfile.querySelector(".popup__form");
 const addBtn = document.querySelector(".btn_style_add");
 const imagePopup = document.querySelector(".popup_style_image");
-
+const popupForm = document.querySelectorAll(".popup__form");
 //Edit profile functions
 const userName = profile.querySelector(".profile__name");
 const userAbout = profile.querySelector(".profile__title");
 const userNameEdit = popupProfile.querySelector(".popup__input_type_user-name");
 const userAboutEdit = popupProfile.querySelector(".popup__input_type_about-me");
+
+console.log(popupForm);
 
 function openPopup(popup) {
     popup.classList.add("popup_opened");
@@ -43,6 +45,23 @@ function saveProfile(e) {
 editBtn.addEventListener("click", openProfile);
 profileForm.addEventListener("submit", saveProfile);
 profileCloseBtn.addEventListener("click", closeProfile);
+
+//function to close popup when clicking outside the form or image
+popup.forEach(item => {
+    item.addEventListener('mouseup', function (evt) {
+        if (evt.target == item) {
+            if (item.classList.contains("popup_opened")) {
+                closePopup(item)
+            }
+        }
+    })
+    window.addEventListener('keydown', function (evt) {
+        if (evt.key == "Escape" || evt.key == "Esc") {
+            closePopup(item);
+        }
+    })
+})
+
 
 //Card functions
 const cardTemplate = document.querySelector("#card-template").content;
@@ -106,7 +125,6 @@ placeForm.addEventListener("submit", savePlace);
 
 const closeImageBtn = imagePopup.querySelector(".btn_style_close-image");
 
-//const likeBtn = cardsContainer.querySelectorAll(".btn");
 function toggleLikeBtn(e) {
     e.target.classList.toggle("btn_style_like");
     e.target.classList.toggle("btn_style_like-active");
@@ -153,3 +171,4 @@ function closeImage() {
 }
 
 closeImageBtn.addEventListener("click", closeImage);
+
