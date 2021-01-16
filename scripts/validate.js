@@ -2,7 +2,6 @@
 
 const showInputError = (formSelector, inputSelector, errorMessage) => {
     const errorClass = formSelector.querySelector(`.${inputSelector.id}-error`);
-    console.log(errorClass);
     inputSelector.classList.add("popup__input_type_error");
     errorClass.textContent = errorMessage;
     errorClass.classList.add("popup__error_visible");
@@ -31,7 +30,6 @@ const hasInvalidInput = (inputList) => {
 };
 
 const toggleButtonState = (inputList, buttonElement) => {
-    console.log(hasInvalidInput(inputList));
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add("btn_style_save-disabled");
     } else {
