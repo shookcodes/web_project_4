@@ -54,7 +54,6 @@ function saveProfile(e) {
 
 editBtn.addEventListener("click", openProfile);
 profileForm.addEventListener("submit", saveProfile);
-profileCloseBtn.addEventListener("click", closeProfile);
 
 //function to close popup when clicking outside the form or image
 popups.forEach((popup) => {
@@ -125,7 +124,6 @@ function savePlace(e) {
     placeForm.reset();
 }
 
-placeCloseBtn.addEventListener("click", closePlace);
 addBtn.addEventListener("click", openPlacePopup);
 placeForm.addEventListener("submit", savePlace);
 
@@ -179,5 +177,4 @@ function closeImage() {
     closePopup(imagePopup);
 }
 
-closeImageBtn.addEventListener("click", closeImage);
 
