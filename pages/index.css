@@ -3,9 +3,6 @@
 @import url("../blocks/popup/popup.css");
 @import url("../blocks/popup/_style/popup_style_image.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
-@import url("../blocks/popup/_closed/popup_closed.css");
-
-@import url("../blocks/popup/_style/popup_style_place.css");
 @import url("../blocks/btn/btn.css");
 @import url("../blocks/btn/_style/btn_style_edit-profile.css");
 @import url("../blocks/btn/_style/btn_style_add.css");
@@ -16,7 +13,6 @@
 @import url("../blocks/btn/_style/btn_style_close.css");
 @import url("../blocks/btn/_style/btn_style_close-popup.css");
 @import url("../blocks/btn/_style/btn_style_close-image.css");
-
 @import url("../blocks/btn/_style/btn_style_delete.css");
 @import url("../blocks/page/page.css");
 @import url("../blocks/header/header.css");
