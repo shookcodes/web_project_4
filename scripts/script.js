@@ -11,8 +11,8 @@ const profileForm = popupProfile.querySelector(".popup__form");
 const addBtn = document.querySelector(".btn_style_add");
 
 const popupPlace = document.querySelector(".popup_style_place");
-let placeText = popupPlace.querySelector(".popup__input_type_place-name");
-let imageLink = popupPlace.querySelector(".popup__input_type_place-link");
+const placeText = popupPlace.querySelector(".popup__input_type_place-name");
+const imageLink = popupPlace.querySelector(".popup__input_type_place-link");
 const placeForm = popupPlace.querySelector(".popup__form");
 
 //Edit profile functions
@@ -20,6 +20,18 @@ const userName = profile.querySelector(".profile__name");
 const userAbout = profile.querySelector(".profile__title");
 const userNameEdit = popupProfile.querySelector(".popup__input_type_user-name");
 const userAboutEdit = popupProfile.querySelector(".popup__input_type_about-me");
+
+const settings = {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".btn_style_save",
+    inactiveButtonClass: "btn_style_save-disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+};
+
+const addCardValidator = new FormValidator(settings, placeForm);
+const profileFormValidator = new FormValidator(settings, profileForm);
 
 const initialCards = [
     {
@@ -48,17 +60,22 @@ const initialCards = [
     },
 ];
 
-initialCards.forEach((item) => {
+function createCard(item) {
     const card = new Card(item, "#card-template");
     const cardElement = card.generateCard();
+    return cardElement
+}
+
+initialCards.forEach((item) => {
+    const cardElement = createCard(item)
     cardsContainer.append(cardElement);
 });
 
-const renderCard = (item) => {
+const renderCard = () => {
+    const item = {};
     item.title = placeText.value;
     item.image = imageLink.value;
-    const card = new Card(item, "#card-template");
-    const cardElement = card.generateCard();
+    const cardElement = createCard(item)
     cardsContainer.prepend(cardElement);
     closePlace();
 };
@@ -70,7 +87,7 @@ function closeProfile() {
 function openProfile() {
     userNameEdit.value = userName.textContent;
     userAboutEdit.value = userAbout.textContent;
-
+    profileFormValidator.resetValidation()
     openPopup(popupProfile);
 }
 
@@ -98,6 +115,8 @@ popups.forEach((popup) => {
 
 //place functions
 function openPlacePopup() {
+    placeForm.reset();
+    addCardValidator.resetValidation();
     openPopup(popupPlace);
 }
 
@@ -108,18 +127,8 @@ export function closePlace() {
 addBtn.addEventListener("click", openPlacePopup);
 placeForm.addEventListener("submit", renderCard);
 
-const settings = {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".btn_style_save",
-    inactiveButtonClass: "btn_style_save-disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_visible",
-};
 
-//find form consts
-const addCardValidator = new FormValidator(settings, placeForm);
-const profileFormValidator = new FormValidator(settings, profileForm);
+
 
 addCardValidator.enableValidation();
 profileFormValidator.enableValidation();
