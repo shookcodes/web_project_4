@@ -9,6 +9,8 @@ class FormValidator {
         inputSelector.classList.add(this._settings.inputErrorClass);
         errorClass.textContent = errorMessage;
         errorClass.classList.add(this._settings.errorClass);
+
+        
     }
 
     _hideInputError(inputSelector) {
@@ -72,6 +74,7 @@ class FormValidator {
             evt.preventDefault();
         });
         this._setEventListeners();
+
     }
 }
 

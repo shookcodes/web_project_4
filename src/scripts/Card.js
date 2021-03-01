@@ -1,15 +1,10 @@
-import {
-    openPopup,
-    imagePopup,
-    imagePopupPicture,
-    imagePopupCaption,
-} from "./utils.js";
 
 export default class Card {
-    constructor({ title, image }, template) {
-        this._title = title;
-        this._image = image;
+    constructor(data, template, handleCardClick) {
+        this._title = data.title;
+        this._image = data.image;
         this._template = template;
+        this._handleCardClick = handleCardClick;
     }
 
     generateCard() {
@@ -32,12 +27,11 @@ export default class Card {
         e.target.classList.toggle("btn_style_like-active");
     }
 
-    _openImage() {
-        imagePopupPicture.src = this._image;
-        imagePopupPicture.alt = this._title;
-        imagePopupCaption.textContent = this._title;
+    _openImage(image, caption) {
+        console.log(this._image, this._title);
+        this._handleCardClick;
+        console.log(this._handleCardClick)
 
-        openPopup(imagePopup);
     }
 
     _deleteCard(e) {
@@ -52,8 +46,6 @@ export default class Card {
 
         likeBtn.addEventListener("click", this._toggleLikeBtn);
         deleteBtn.addEventListener("click", this._deleteCard);
-        cardImage.addEventListener("click", () => {
-            this._openImage(imagePopup);
-        });
+        cardImage.addEventListener("click", () => {this._handleCardClick(this._title, this._image)});;
     }
 }

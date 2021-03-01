@@ -17,7 +17,7 @@
 @media screen and (max-width: 620px) {
   .btn_style_close-image {
     transform: scale(0.75);
-    top: -2vh;
-    right: 1vw;
+    top: -35px;
+    right: -35px;
   }
 }

@@ -1,0 +1,12 @@
+.popup__input_type_error {
+  display: flex;
+  flex-direction: column;
+  max-width: 358px;
+}
+
+@media screen and (max-width: 620px) {
+  .popup__input_type_error {
+    max-width: 238px;
+    width: 80vw;
+  }
+}
