@@ -1,12 +1,12 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
-import PopupWithImage from "./PopupWithImage.js";
-import PopupWithForm from "./PopupWithForm.js"
-import Section from "./Section.js";
-import UserInfo from "./UserInfo.js"
+import Card from "../scripts/Card.js";
+import FormValidator from "../scripts/FormValidator.js";
+import PopupWithImage from "../scripts/PopupWithImage.js";
+import PopupWithForm from "../scripts/PopupWithForm.js"
+import Section from "../scripts/Section.js";
+import UserInfo from "../scripts/UserInfo.js"
 
-import {initialCards, settings, placeForm, profileForm, addBtn, editBtn, placeText, imageLink, personName, personAbout, userNameEdit, userAboutEdit } from "./constants.js"
-import "../pages/index.css";
+import {initialCards, settings, placeForm, profileForm, addBtn, editBtn, placeText, imageLink, personName, personAbout, userNameEdit, userAboutEdit } from "../utils/constants.js"
+import "./index.css";
 import profileImage from "../images/profile__avatar.png"
 import headerImage from "../images/header__logo.svg";
 
@@ -34,12 +34,7 @@ openImage.setEventListeners();
 const defaultCards = new Section({
     items: initialCards,
     renderer: (item) => {
-        const card = new Card(item, "#card-template",  () => {
-            openImage.open(item.title, item.image)
-           
-        });
-       
-        const cardElement = card.generateCard();
+        const cardElement = createCard(item)
         defaultCards.addItem(cardElement);
     }
 }, ".cards")
@@ -51,7 +46,7 @@ const renderCard = () => {
     item.title = placeText.value;
     item.image = imageLink.value;
     const cardElement = createCard(item)
-    document.querySelector(".cards").prepend(cardElement);
+    defaultCards.prependItem(cardElement);
 };
 
 //creates new individual cards
@@ -66,34 +61,36 @@ function createCard(item) {
 }
 
 //create new card from place form
-const addPlacePopup = new PopupWithForm(".popup_style_place", () =>  {
-    addCardValidator.resetValidation()
-    renderCard() 
+const addPlacePopup = new PopupWithForm(".popup_style_place", (data) =>  {
+    
+    renderCard(data)
 });
 
 addPlacePopup.setEventListeners();
 
 addBtn.addEventListener("click", () => {
+    addCardValidator.resetValidation()
     addPlacePopup.open();  
 })
 
 //edit profile
-const currentProfileData = new UserInfo(personName, personAbout);
+const profileData = new UserInfo(personName, personAbout);
 
 const editProfilePopup = new PopupWithForm(".popup_style_profile", () => {
-    currentProfileData.setUserInfo(userNameEdit.value, userAboutEdit.value);
-    profileFormValidator.resetValidation();
+    //Hello Reviewer! I've spent 4 days trying to figure out how to pass the data as one object per the previous review (using profile.setUserInfo(data))
+    //I have been unsuccessful; I can get it to return [object Object] or return both values in the userName input field. If there is some guidance you have, please let me know... Otherwise this is the way I was able to make it work.
+    profileData.setUserInfo(userNameEdit.value, userAboutEdit.value);
 
 })
 
 editProfilePopup.setEventListeners();
 
 editBtn.addEventListener("click", () => {
-    let [person, about] = currentProfileData.getUserInfo();
-    console.log(person)
+    const [person, about] = profileData.getUserInfo();
     userNameEdit.value = person;
     userAboutEdit.value = about;
     editProfilePopup.open();
+    profileFormValidator.resetValidation();
     
    
 })

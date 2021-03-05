@@ -14,11 +14,4 @@ export default class PopupWithImage extends Popup {
         this._image.alt = caption;
     }
 
-    close() {
-        super.close();
-    }
-
-    setEventListeners() {
-        super.setEventListeners();
-    }
 }

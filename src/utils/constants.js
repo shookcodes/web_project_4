@@ -25,7 +25,7 @@ export const personAboutEdit = ".popup__input_type_about-me";
 export const userNameEdit = document.querySelector(".popup__input_type_user-name");
 export const userAboutEdit = document.querySelector(".popup__input_type_about-me");
 export const cardImage = ".card__image"
-export const profilePicture = document.querySelector("#profile-picture");
+ 
 
 export const settings = {
     formSelector: ".popup__form",

@@ -5,12 +5,16 @@ export default class UserInfo {
     }
 
     getUserInfo() {
-        return this.userInfo = [this._person.textContent, this._about.textContent]
+        
+        this.userInfo =[this._person.textContent, this._about.textContent]
+
+        console.log(this.userInfo)
+        return this.userInfo
     }
 
     setUserInfo(person, about) {
         this._person.textContent = person;
         this._about.textContent = about
-        
+        console.log(person)
     }
 }
