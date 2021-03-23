@@ -3,25 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
 
     <title>Around the U.S.</title>
   </head>
   <body class="page">
     <header class="header">
-      <img
-        class="header__logo"
-        id="header-logo"
-        alt="Around the U.S."
-      />
+      <img class="header__logo" id="header-logo" alt="Around the U.S." />
     </header>
     <main>
       <section class="profile">
-        <img
-          class="profile__avatar"
-          id="profile-picture"
-          alt="Profile picture"
-        />
+        <div class="profile__avatar-container">
+          <button
+            class="profile__avatar-edit"
+            type="button"
+            aria-label="Edit Avatar"
+          ></button>
+          <img
+            class="profile__avatar"
+            id="profile-picture"
+            alt="Profile picture"
+            src="about:blank" 
+          />
+        </div>
         <div class="profile__info">
           <div class="profile__name-info">
             <h1 class="profile__name" id="name">Jacques Cousteau</h1>
@@ -128,9 +131,43 @@
           <button
             class="btn btn_style_save"
             type="submit"
-            aria-label="Create new place"
+            aria-label="Create place"
           >
-            Create
+            Create place
+          </button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="popup popup_style_avatar">
+      <form class="popup__form" novalidate>
+        <fieldset class="popup__fields">
+          <button
+            class="btn btn_style_close btn_style_close-popup"
+            type="reset"
+            aria-label="Close avatar modal"
+          ></button>
+          <h2 class="popup__title">Change profile picture</h2>
+          <div class="popup__inputs">
+            <label class="popup__field" for="avatar-url">
+              <input
+                class="popup__input popup__input_type_avatar-image"
+                type="url"
+                id="avatar-url"
+                name="avatar-url"
+                placeholder="Avatar URL"
+                required
+                minlength="1"
+              />
+              <span class="avatar-url-error"></span>
+            </label>
+          </div>
+          <button
+            class="btn btn_style_save"
+            type="submit"
+            aria-label="Update avatar"
+          >
+            Save
           </button>
         </fieldset>
       </form>
@@ -144,21 +181,43 @@
         </figure>
       </div>
     </div>
+    <div class="popup popup_style_delete">
+        <form class="popup__form" novalidate>
+        <fieldset class="popup__fields">
+          <button
+            class="btn btn_style_close"
+            type="reset"
+            aria-label="Close delete card modal"
+          ></button>
+        <h2 class="popup__title">Are you sure?</h2>
+        <button
+            class="btn btn_style_save"
+            type="submit"
+            aria-label="Delete card confirmation"
+          >
+            Yes
+          </button>
+          </fieldset>
+          </form>
+  
+    </div>
+
     <template id="card-template">
       <div class="card">
         <button class="btn btn_style_delete" aria-label="Delete place"></button>
         <img class="card__image" src="about:blank" alt="placeholder" />
         <div class="card__content">
           <h2 class="card__title"></h2>
+          <div class="card__like">
           <button
             class="btn btn_style_like"
             type="button"
             aria-label="Like location"
           ></button>
+          <span class="card__like-text">0</span>
+        </div>
         </div>
       </div>
     </template>
-
-
   </body>
 </html>

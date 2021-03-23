@@ -13,8 +13,7 @@
   position: absolute;
   right: 18px;
   top: 18px;
+  visibility: hidden;
+  opacity: 0;
 }
 
-.btn_style_delete:hover {
-  opacity: 0.6;
-}

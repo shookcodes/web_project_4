@@ -1,0 +1,9 @@
+.btn_style_delete-active {
+  visibility: visible;
+  opacity: 1;
+  
+}
+
+.btn_style_delete-active:hover {
+  opacity: 0.6;
+}
