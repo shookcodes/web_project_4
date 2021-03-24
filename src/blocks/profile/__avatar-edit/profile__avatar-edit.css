@@ -12,7 +12,7 @@
 }
 
 .profile__avatar-edit:hover{
-    background-image: url("../../../images/edit-profile.svg") ;
+    background-image: url("../../../images/edit-profile.svg");
     background-position: center;
     background-color: rgba(0,0,0,.8);
     border: none;
@@ -20,5 +20,4 @@
     opacity: 1;
     transition: color 2s ease-in-out 1s;
     background-size: 26px 26px;
-    border: none;
 }
