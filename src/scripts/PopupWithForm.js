@@ -24,14 +24,15 @@ export default class PopupWithForm extends Popup {
    super.open();
  }
 
- savingData(isSaving) {
-   const buttonText = this._form.querySelector(".btn_style_save");
-   console.log(buttonText)
-   if(isSaving) {
-  buttonText.innerText === "Saving...";
-  console.log(buttonText)
-   }
+ savingContent(isSaving, buttonText){ 
+  if(isSaving) { 
+    this._popup.querySelector('.btn_style_save').textContent = buttonText; 
+
+  } 
+  if (!isSaving) { this._popup.querySelector('.btn_style_save').textContent = buttonText
+
 }
+} 
 
   close() {
     this._form.reset();

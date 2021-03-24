@@ -1,6 +1,6 @@
 .popup__fields {
   border: none;
-  height: 330px;
+  max-height: 330px;
   width: 100%;
   max-width: 358px;
   display: flex;

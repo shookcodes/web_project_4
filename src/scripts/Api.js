@@ -58,11 +58,11 @@ class Api {
         .catch((err) => console.log(err));
   }
 
-  addCardLike(cardId) {
+  addCardLike(cardId, like) {
     return fetch(this._baseUrl + "/cards/likes/" + cardId, {
         method: "PUT",
         headers: this._headers,
-        body: JSON.stringify({cardId})
+        body: JSON.stringify({cardId, like})
       })
         .then((res, err) => (res.ok ? res.json() : Promise.reject(err)))
         .catch((err) => console.log(err));

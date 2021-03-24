@@ -1,5 +1,6 @@
 .popup__form {
   max-width: 430px;
+  max-height: 458px;
   background-color: white;
   border-radius: 10px;
   display: flex;
