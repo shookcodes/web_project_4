@@ -19,8 +19,20 @@ export default class PopupWithForm extends Popup {
     return inputValues;
   }
 
+  _clearInputValues() {
+    const inputValues = {};
+    const inputs = [...this._form.querySelectorAll(".popup__input")];
+
+    inputs.forEach((input) => {
+      inputValues[input.name] = "";
+    });
+
+    return inputValues;
+  }
+
  open(data) {
-   this._data = data;
+   this._data = data; 
+   this.setEventListeners();
    super.open();
  }
 
@@ -32,18 +44,20 @@ export default class PopupWithForm extends Popup {
   if (!isSaving) { this._popup.querySelector('.btn_style_save').textContent = buttonText
 
 }
-} 
+}
+
 
   close() {
+    this._form.removeEventListener("submit", this._submitEventHandler)
+    this._clearInputValues();
     this._form.reset();
     super.close();
   }
 
-  _submitEventHandler() {
-    //e.preventDefault();
+  _submitEventHandler(e) {
+    e.preventDefault();
     const inputValues = this._getInputValues(inputValues);
     this._submitHandler(inputValues);
-    //this.savingData(true)
     this.close();
   }
 

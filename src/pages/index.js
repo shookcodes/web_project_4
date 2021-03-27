@@ -1,3 +1,11 @@
+/*
+Hi Gennadiy, I've spent several hours over the past few days trying to figure out why the cards are being deleted. I've tried the following: 
+--re-organized my createCard code, 
+--removed event listeners when closing the card or pressing the delete button
+--I've studied the code in this file, in Card.js, and PopupWithForm.js
+--I am at a total loss at what I am doing wrong. 
+*/
+
 import Card from "../scripts/Card.js";
 import FormValidator from "../scripts/FormValidator.js";
 import PopupWithImage from "../scripts/PopupWithImage.js";
@@ -66,31 +74,19 @@ api.getAppInfo().then(([cardsData, userData]) => {
   profileData.setUserInfo({ name: userData.name, about: userData.about });
   profileData.setUserAvatar(userData.avatar);
 
-  /*
-  function savingContent(isSaving, popup, buttonText){ 
-    //const originalText = popup.querySelector('.btn_style_save').textContent 
-    if(isSaving) { 
-      popup.querySelector('.btn_style_save').textContent = buttonText; 
-    } 
-    if (!isSaving) { popup.querySelector('.btn_style_save').textContent = buttonText
-  }
-  } 
-
-  */
-
 
   const addPlacePopup = new PopupWithForm({
     popupSelector: ".popup_style_place",
     submitHandler: (data) => {
       addPlacePopup.savingContent(true, "Saving...");
-      let cardData = { name: data["place-name"], link: data["place-link"] };
+      const cardData = { name: data["place-name"], link: data["place-link"] };
       
       api.addCard(cardData).then((res) => {
         
         const cardElement = createCard(res);
         defaultCards.prependItem(cardElement);
         addCardValidator.resetValidation();
-      }).then(addPlacePopup.savingContent(false, "Create Place"))
+      }).then(addPlacePopup.savingContent(false, "Create place"))
       
     },
   });
@@ -103,6 +99,14 @@ api.getAppInfo().then(([cardsData, userData]) => {
   });
 });
 
+
+/*
+Hi Gennadiy, I've spent several hours over the past few days trying to figure out why the cards are being deleted. I've tried the following: 
+--re-organized my createCard code, 
+--removed event listeners when closing the card or pressing the delete button
+--I've studied the code in this file, in Card.js, and PopupWithForm.js
+--I am at a total loss at what I am doing wrong. 
+*/
 //creates new individual cards
 function createCard(data) {
   const card = new Card(
@@ -113,21 +117,22 @@ function createCard(data) {
         openImage.open(data.name, data.link);
       },
       handleDeleteCardClick: () => {
-        const popupDelete = new PopupWithForm({
+        const deletePopup = new PopupWithForm({
           popupSelector: ".popup_style_delete",
           submitHandler: () => {
-            popupDelete.savingContent(true, "Saving...")
-            api.removeCard(card._id).then(() => {
-              card.deleteCard();
-            }).then(
-              popupDelete.savingContent(false, "Yes")
-            );
-          },
-        });
+            deletePopup.savingContent(true, "Saving...")
+            api.removeCard(data._id)
+              .then(() => {
+              card.deleteCard(data._id)
+              
 
-        popupDelete.setEventListeners();
-        popupDelete.open(data);
-        deleteCardValidator.resetValidation();
+              deletePopup.savingContent(false, "Yes")
+              deletePopup.close()
+            deleteCardValidator.resetValidation()}
+            );
+          }
+        })
+        deletePopup.open(data._id);
       },
       handleLikeCardClick: () => {
         if (card.cardLiked()) {
@@ -147,6 +152,7 @@ function createCard(data) {
     },
     userId
   );
+
 
   const cardElement = card.generateCard();
   return cardElement;
