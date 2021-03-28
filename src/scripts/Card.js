@@ -35,7 +35,7 @@ export default class Card {
     this._cardImage.setAttribute("alt", this._name);
     this._cardButton = this._cardElement.querySelector(".btn_style_like");
     this._cardLike = this._cardElement.querySelector(".card__like-text");
-
+    this._cardElement.id = this._id;
     this._deleteBtn = this._cardElement.querySelector(".btn_style_delete");
     this._showDeleteButton();
     this._setEventListeners();
@@ -76,7 +76,7 @@ export default class Card {
     this._deleteBtn.removeEventListener("click", () => {
       this._handleDeleteCardClick(this._id);
     });
-    this._cardElement.remove();
+    this._cardElement.remove(this._id);
   }
 
   _setEventListeners() {

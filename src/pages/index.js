@@ -121,9 +121,9 @@ function createCard(data) {
           popupSelector: ".popup_style_delete",
           submitHandler: () => {
             deletePopup.savingContent(true, "Saving...")
-            api.removeCard(data._id)
+            api.removeCard(card._id)
               .then(() => {
-              card.deleteCard(data._id)
+              card.deleteCard(card._id)
               
 
               deletePopup.savingContent(false, "Yes")
