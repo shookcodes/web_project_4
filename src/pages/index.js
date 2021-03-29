@@ -134,7 +134,7 @@ function createCard(data) {
     submitHandler: (cardId, cardElement) => {
       
       deletePopup.savingContent(true, "Saving...")
-      currentCard.remove(cardId)
+      //currentCard.remove(cardId)
       console.log(cardId, currentCard)
       /*
       api.removeCard(data._id)
