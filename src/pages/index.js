@@ -10,6 +10,7 @@ import Card from "../scripts/Card.js";
 import FormValidator from "../scripts/FormValidator.js";
 import PopupWithImage from "../scripts/PopupWithImage.js";
 import PopupWithForm from "../scripts/PopupWithForm.js";
+import PopupConfirmation from "../scripts/PopupConfirmation.js"
 import Section from "../scripts/Section.js";
 import UserInfo from "../scripts/UserInfo.js";
 
@@ -87,6 +88,7 @@ api.getAppInfo().then(([cardsData, userData]) => {
         defaultCards.prependItem(cardElement);
         addCardValidator.resetValidation();
       }).then(addPlacePopup.savingContent(false, "Create place"))
+      .catch((err) => console.log(err))
       
     },
   });
@@ -101,14 +103,57 @@ api.getAppInfo().then(([cardsData, userData]) => {
 
 
 /*
-Hi Gennadiy, I've spent several hours over the past few days trying to figure out why the cards are being deleted. I've tried the following: 
---re-organized my createCard code, 
---removed event listeners when closing the card or pressing the delete button
---I've studied the code in this file, in Card.js, and PopupWithForm.js
---I am at a total loss at what I am doing wrong. 
+const deletePopup = new PopupConfirmation({
+  popupSelector: ".popup_style_delete",
+  submitHandler: (cardId, cardElement) => {
+    deletePopup.savingContent(true, "Saving...")
+    //data.deleteCard(data._id)
+    console.log(cardId, cardElement)
+    
+    api.removeCard(data._id)
+      .then(() => {
+        console.log(data)
+        
+        cardElement.deleteCard(data._id);
+
+      deletePopup.savingContent(false, "Yes")
+    deleteCardValidator.resetValidation()}
+    )
+   
+    .catch((err) => console.log(err))
+    
+  }
+})
+
+deletePopup.setEventListeners();
 */
-//creates new individual cards
+
 function createCard(data) {
+  const deletePopup = new PopupConfirmation({
+    popupSelector: ".popup_style_delete",
+    submitHandler: (cardId, cardElement) => {
+      
+      deletePopup.savingContent(true, "Saving...")
+      currentCard.remove(cardId)
+      console.log(cardId, currentCard)
+      /*
+      api.removeCard(data._id)
+        .then(() => {
+          console.log(data)
+          
+          cardElement.deleteCard(data._id);
+  
+        deletePopup.savingContent(false, "Yes")
+      deleteCardValidator.resetValidation()}
+      )
+     
+      .catch((err) => console.log(err))
+      */
+    }
+  })
+  
+  deletePopup.setEventListeners();
+
   const card = new Card(
     {
       data: data,
@@ -116,23 +161,10 @@ function createCard(data) {
       handleCardClick: () => {
         openImage.open(data.name, data.link);
       },
-      handleDeleteCardClick: () => {
-        const deletePopup = new PopupWithForm({
-          popupSelector: ".popup_style_delete",
-          submitHandler: () => {
-            deletePopup.savingContent(true, "Saving...")
-            api.removeCard(card._id)
-              .then(() => {
-              card.deleteCard(card._id)
-              
-
-              deletePopup.savingContent(false, "Yes")
-              deletePopup.close()
-            deleteCardValidator.resetValidation()}
-            );
-          }
-        })
-        deletePopup.open(data._id);
+      handleDeleteCardClick: (cardElement) => {
+        const currentCard = card.cardElement        
+        console.log(currentCard)
+        deletePopup.open(data, currentCard)
       },
       handleLikeCardClick: () => {
         if (card.cardLiked()) {
@@ -158,6 +190,8 @@ function createCard(data) {
   return cardElement;
 }
 
+console.log(createCard)
+
 //edit profile
 
 const editProfilePopup = new PopupWithForm({
@@ -170,7 +204,8 @@ const editProfilePopup = new PopupWithForm({
     api
       .setUserInfo({ name, about })
       .then(profileData.setUserInfo({ name, about }))
-      .then(editProfilePopup.savingContent(false, "Save"));
+      .then(editProfilePopup.savingContent(false, "Save"))
+      .catch((err) => console.log(err));
   },
 });
 
@@ -193,6 +228,7 @@ const editAvatarPopup = new PopupWithForm({
       .setUserAvatar(avatar["avatar-url"])
       .then(profileData.setUserAvatar(avatar["avatar-url"]))
       .then(editAvatarPopup.savingContent(false, "Saving"))
+      .catch((err) => console.log(err))
   },
 });
 

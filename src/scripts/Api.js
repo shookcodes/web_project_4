@@ -4,21 +4,27 @@ class Api {
     this._headers = headers;
   }
 
+
+  _checkResponse(res, err) {
+    if (res.ok) {
+        return res.json();
+    }
+    return  Promise.reject(err)
+}
+
   //GET https://around.nomoreparties.co/v1/group-9/cards
   getCardList() {
     return fetch(this._baseUrl + "/cards", {
       headers: this._headers
     })
-      .then((res, err) => (res.ok ? res.json() : Promise.reject(err)))
-      .catch((err) => console.log(err));
+    .then(this._checkResponse)
   }
 
   getUserInfo() {
     return fetch(this._baseUrl + "/users/me", {
         headers: this._headers
       })
-        .then((res, err) => (res.ok ? res.json() : Promise.reject(err)))
-        .catch((err) => console.log(err));
+      .then(this._checkResponse)
     }
   
     getAppInfo() {
@@ -32,8 +38,7 @@ class Api {
         headers: this._headers,
         body: JSON.stringify({name, link})
       })
-        .then((res, err) => (res.ok ? res.json() : Promise.reject(err)))
-        .catch((err) => console.log(err));
+      .then(this._checkResponse)
   }
 
   //DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId 
@@ -43,8 +48,7 @@ class Api {
         headers: this._headers,
         body: JSON.stringify({cardId})
       })
-        .then((res, err) => (res.ok ? res.json() : Promise.reject(err)))
-        .catch((err) => console.log(err));
+      .then(this._checkResponse)
 
   }
 
@@ -54,8 +58,7 @@ class Api {
         headers: this._headers,
         //body: JSON.stringify({cardId})
       })
-        .then((res, err) => (res.ok ? res.json() : Promise.reject(err)))
-        .catch((err) => console.log(err));
+      .then(this._checkResponse)
   }
 
   addCardLike(cardId, like) {
@@ -64,8 +67,7 @@ class Api {
         headers: this._headers,
         body: JSON.stringify({cardId, like})
       })
-        .then((res, err) => (res.ok ? res.json() : Promise.reject(err)))
-        .catch((err) => console.log(err));
+      .then(this._checkResponse)
   }
 
   removeCardLike(cardId, like) {
@@ -74,8 +76,7 @@ class Api {
         headers: this._headers,
         body: JSON.stringify({cardId, like})
       })
-        .then((res, err) => (res.ok ? res.json() : Promise.reject(err)))
-        .catch((err) => console.log(err));
+      .then(this._checkResponse)
   }
 
   setUserInfo({ name, about }) {
@@ -84,8 +85,7 @@ class Api {
         headers: this._headers,
         body: JSON.stringify({name, about})
       })
-        .then((res, err) => (res.ok ? res.json() : Promise.reject(err)))
-        .catch((err) => console.log(err));
+      .then(this._checkResponse)
   }
 
   setUserAvatar(avatar) {
@@ -94,8 +94,7 @@ class Api {
         headers: this._headers,
         body: JSON.stringify({avatar})
       })
-        .then((res, err) => (res.ok ? res.json() : Promise.reject(err)))
-        .catch((err) => console.log(err));
+      .then(this._checkResponse)
   }
 }
 

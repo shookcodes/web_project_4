@@ -3,6 +3,7 @@ export default class Card {
     {
       data,
       template,
+      cardElement,
       handleCardClick,
       handleDeleteCardClick,
       handleLikeCardClick,
@@ -72,10 +73,10 @@ export default class Card {
     this._handleCardClick;
   }
 
-  deleteCard(cardId) {
-    this._deleteBtn.removeEventListener("click", () => {
-      this._handleDeleteCardClick(this._id);
-    });
+  deleteCard(cardId, cardElement) {
+   // this._deleteBtn.removeEventListener("click", () => {
+   //   this._handleDeleteCardClick(this._id);
+   // });
     this._cardElement.remove(this._id);
   }
 
@@ -94,7 +95,8 @@ export default class Card {
     });
 
     this._deleteBtn.addEventListener("click", () => {
-      this._handleDeleteCardClick(this._id);
+      this._handleDeleteCardClick(this._id, this._cardElement)
+      console.log(this._cardElement);
     });
   }
 }
