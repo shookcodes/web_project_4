@@ -21,6 +21,7 @@ export default class Card {
     this._handleCardClick = handleCardClick;
     this._handleDeleteCardClick = handleDeleteCardClick;
     this._handleLikeeCardClick = handleLikeCardClick;
+    this._cardElement = cardElement;
   }
 
   generateCard() {
@@ -96,7 +97,6 @@ export default class Card {
 
     this._deleteBtn.addEventListener("click", () => {
       this._handleDeleteCardClick(this._id, this._cardElement)
-      console.log(this._cardElement);
     });
   }
 }

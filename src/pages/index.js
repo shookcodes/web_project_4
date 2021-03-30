@@ -102,58 +102,30 @@ api.getAppInfo().then(([cardsData, userData]) => {
 });
 
 
-/*
+
 const deletePopup = new PopupConfirmation({
   popupSelector: ".popup_style_delete",
   submitHandler: (cardId, cardElement) => {
-    deletePopup.savingContent(true, "Saving...")
-    //data.deleteCard(data._id)
-    console.log(cardId, cardElement)
     
-    api.removeCard(data._id)
-      .then(() => {
-        console.log(data)
-        
-        cardElement.deleteCard(data._id);
+      deletePopup.savingContent(true, "Saving...")
+			console.log(cardId, cardElement);
+      api.removeCard(cardId)
+        .then(() => {
 
-      deletePopup.savingContent(false, "Yes")
-    deleteCardValidator.resetValidation()}
-    )
-   
-    .catch((err) => console.log(err))
+						cardElement.deleteCard(cardId);
+					
+        deletePopup.savingContent(false, "Yes")
+      	deleteCardValidator.resetValidation()}
+      )
+      .catch((err) => console.log(err))
     
   }
 })
 
 deletePopup.setEventListeners();
-*/
+
 
 function createCard(data) {
-  const deletePopup = new PopupConfirmation({
-    popupSelector: ".popup_style_delete",
-    submitHandler: (cardId, cardElement) => {
-      
-      deletePopup.savingContent(true, "Saving...")
-      //currentCard.remove(cardId)
-      console.log(cardId, currentCard)
-      /*
-      api.removeCard(data._id)
-        .then(() => {
-          console.log(data)
-          
-          cardElement.deleteCard(data._id);
-  
-        deletePopup.savingContent(false, "Yes")
-      deleteCardValidator.resetValidation()}
-      )
-     
-      .catch((err) => console.log(err))
-      */
-    }
-  })
-  
-  deletePopup.setEventListeners();
-
   const card = new Card(
     {
       data: data,
@@ -161,10 +133,8 @@ function createCard(data) {
       handleCardClick: () => {
         openImage.open(data.name, data.link);
       },
-      handleDeleteCardClick: (cardElement) => {
-        const currentCard = card.cardElement        
-        console.log(currentCard)
-        deletePopup.open(data, currentCard)
+      handleDeleteCardClick: () => {
+        deletePopup.open(data, card)
       },
       handleLikeCardClick: () => {
         if (card.cardLiked()) {
@@ -190,7 +160,6 @@ function createCard(data) {
   return cardElement;
 }
 
-console.log(createCard)
 
 //edit profile
 
